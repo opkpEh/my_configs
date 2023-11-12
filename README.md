@@ -1,2 +1,2 @@
 # my_configs
-my linux configs
+my linux configs ✨
