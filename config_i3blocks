@@ -1,0 +1,49 @@
+#  _ _____ _     _            _
+# (_)___ /| |__ | | ___   ___| | _____
+# | | |_ \| '_ \| |/ _ \ / __| |/ / __|
+# | |___) | |_) | | (_) | (__|   <\__ \
+# |_|____/|_.__/|_|\___/ \___|_|\_\___/
+
+align=center
+separator=false
+color=#f8f8f2
+separator_block_width=15
+markup=pango
+
+
+[disk]
+command=python3 $SCRIPT_DIR/disk-io/disk-io.py
+interval=1
+color=#ff9355
+
+
+[memory]
+command=$SCRIPT_DIR/memory/memory
+interval=2
+color=#ff79c6
+markup= pango
+
+
+[volume]
+command=$SCRIPT_DIR/volume-pulseaudio/volume-pulseaudio
+interval=1
+color=#bd93f9
+
+
+[battery]
+interval=2
+color=#ff5555
+command=python3 $SCRIPT_DIR/battery/battery.py
+
+
+[time]
+command=$SCRIPT_DIR/time/time
+interval=1
+label=<span> </span>
+color=#8be000
+
+
+[date]
+command=$SCRIPT_DIR/rofi-calendar/rofi-calendar
+interval=60
+color=#ee5949
