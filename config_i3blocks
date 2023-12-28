@@ -11,11 +11,15 @@ separator_block_width=15
 markup=pango
 
 
-[disk]
+[disk-io]
 command=python3 $SCRIPT_DIR/disk-io/disk-io.py
 interval=1
 color=#ff9355
 
+[disk]
+command=$SCRIPT_DIR/disk/disk
+color=#FFFF64
+interval=1
 
 [memory]
 command=$SCRIPT_DIR/memory/memory
