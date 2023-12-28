@@ -1,0 +1,11 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use POSIX qw/strftime/;
+
+my $format  = $ENV{BLOCK_INSTANCE} || $ENV{STRFTIME_FORMAT} || "%H:%M";
+
+binmode(STDOUT, ":utf8");
+my $time = strftime($format, localtime());
+print "$time\n";
