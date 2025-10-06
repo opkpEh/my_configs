@@ -102,7 +102,6 @@ require("lazy").setup({
         ensure_installed = {
           "pyright",       -- Python
           "clangd",        -- C/C++
-          "gopls",         -- Go
           "rust_analyzer", -- Rust
           "vtsls",         -- JavaScript / TypeScript
         },
@@ -121,19 +120,20 @@ require("lazy").setup({
     end,
   },
 
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      local lspconfig = require("lspconfig")
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+{
+  "neovim/nvim-lspconfig",
+  config = function()
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      local servers = { "pyright", "clangd", "gopls", "rust_analyzer", "vtsls" }
-      for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup({ capabilities = capabilities })
-      end
-    end,
-  },
-})
+    local servers = { "pyright", "clangd", "gopls", "rust_analyzer", "vtsls" }
+    for _, lsp in ipairs(servers) do
+      vim.lsp.config[lsp].setup({
+        capabilities = capabilities,
+      })
+    end
+  end,
+}
+  })
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
